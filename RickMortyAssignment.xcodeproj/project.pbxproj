@@ -29,9 +29,25 @@
 		293D05D2305139F2008BC1B3 /* RickMortyAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickMortyAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		293D05FF30513C92008BC1B3 /* Exceptions for "RickMortyAssignment" folder in "RickMortyAssignmentTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Networking/HTTPClient.swift,
+				Networking/HTTPRequest.swift,
+				Networking/NetworkConfiguration.swift,
+				Networking/NetworkError.swift,
+			);
+			target = 293D05C7305139F2008BC1B3 /* RickMortyAssignmentTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		293D05BD305139ED008BC1B3 /* RickMortyAssignment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				293D05FF30513C92008BC1B3 /* Exceptions for "RickMortyAssignment" folder in "RickMortyAssignmentTests" target */,
+			);
 			path = RickMortyAssignment;
 			sourceTree = "<group>";
 		};
