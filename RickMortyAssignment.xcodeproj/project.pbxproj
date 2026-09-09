@@ -33,13 +33,20 @@
 		293D05FF30513C92008BC1B3 /* Exceptions for "RickMortyAssignment" folder in "RickMortyAssignmentTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				App/AppFactory.swift,
 				Models/APIResponse.swift,
 				Models/Character.swift,
 				Models/Episode.swift,
 				Networking/HTTPClient.swift,
 				Networking/HTTPRequest.swift,
+				Networking/ImageCache.swift,
+				Networking/ImageService.swift,
 				Networking/NetworkConfiguration.swift,
 				Networking/NetworkError.swift,
+				"Persistence/CachedCharacter+Extensions.swift",
+				Persistence/PersistenceController.swift,
+				Repositories/CharacterRepository.swift,
+				ViewModels/CharactersListViewModel.swift,
 			);
 			target = 293D05C7305139F2008BC1B3 /* RickMortyAssignmentTests */;
 		};

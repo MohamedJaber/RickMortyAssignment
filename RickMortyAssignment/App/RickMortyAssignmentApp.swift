@@ -9,8 +9,14 @@ import SwiftUI
 
 @main
 struct RickMortyAssignmentApp: App {
+    let appFactory = AppFactory()
+
     var body: some Scene {
         WindowGroup {
+            NavigationStack {
+                CharactersListView(viewModel: appFactory.characterListViewModel)
+                    .preferredColorScheme(nil)
+            }
         }
     }
 }
