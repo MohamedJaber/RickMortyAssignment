@@ -1,0 +1,52 @@
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+*.xcarchive
+*.xcbkptlist
+*.moved-aside
+*.perspectivev3
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcworkspace
+
+# Swift Package Manager
+.swiftpm/
+.build/
+*.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Application
+*.ipa
+*.app
+
+# Test
+coverage.txt
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# Temporary
+*.tmp
+*.temp
