@@ -73,9 +73,15 @@ struct CharacterDetailView: View {
             Spacer()
             Button(action: {
                 Task {
-                    await viewModel.saveToFavorites()
-                    isFavorite = true
-                    AppLogger.ui.debug("Character added to favorites: \(character.name)")
+                    if isFavorite {
+                        await viewModel.removeFromFavorites()
+                        isFavorite = false
+                        AppLogger.ui.debug("Character removed from favorites: \(character.name)")
+                    } else {
+                        await viewModel.saveToFavorites()
+                        isFavorite = true
+                        AppLogger.ui.debug("Character added to favorites: \(character.name)")
+                    }
                 }
             }) {
                 Image(systemName: isFavorite ? "heart.fill" : "heart")

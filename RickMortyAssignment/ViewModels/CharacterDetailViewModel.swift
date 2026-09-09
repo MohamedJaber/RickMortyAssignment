@@ -67,6 +67,10 @@ final class CharacterDetailViewModel {
         await persistenceController.saveCharacter(character)
     }
     
+    func removeFromFavorites() async {
+        await persistenceController.removeFromFavorites(id: character.id)
+    }
+    
     func isFavorited() async -> Bool {
         return await persistenceController.isFavorited(id: character.id)
     }

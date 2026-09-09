@@ -91,6 +91,23 @@ actor PersistenceController {
         }
     }
     
+    func removeFromFavorites(id: Int) async {
+        let context = ModelContext(modelContainer)
+        
+        do {
+            let descriptor = FetchDescriptor<CachedCharacter>(
+                predicate: #Predicate { $0.id == id }
+            )
+            if let existing = try context.fetch(descriptor).first {
+                existing.isFavorite = false
+                try context.save()
+                AppLogger.persistence.debug("Character removed from favorites: id=\(id)")
+            }
+        } catch {
+            AppLogger.persistence.error("Failed to remove character from favorites: \(error.localizedDescription)")
+        }
+    }
+    
     func getAllCachedCharacters() -> [CachedCharacter] {
         let context = ModelContext(modelContainer)
         

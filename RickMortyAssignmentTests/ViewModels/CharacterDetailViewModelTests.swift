@@ -149,6 +149,33 @@ struct CharacterDetailViewModelTests {
     }
     
     @Test
+    func testRemoveFromFavorites() async {
+        // Arrange
+        let persistence = RickMortyAssignment.PersistenceController()
+        let mockEpisodeRepository = MockEpisodeRepository()
+        
+        let viewModel = RickMortyAssignment.CharacterDetailViewModel(
+            character: Self.testCharacter,
+            episodeRepository: mockEpisodeRepository,
+            persistenceController: persistence
+        )
+        
+        // Act - save to favorites first
+        await viewModel.saveToFavorites()
+        
+        // Assert - character should be favorited
+        var isFavorited = await viewModel.isFavorited()
+        #expect(isFavorited == true)
+        
+        // Act - remove from favorites
+        await viewModel.removeFromFavorites()
+        
+        // Assert - character should no longer be favorited
+        isFavorited = await viewModel.isFavorited()
+        #expect(isFavorited == false)
+    }
+    
+    @Test
     func testStatusColorDifferencesByStatus() {
         let aliveColor = RickMortyAssignment.StatusService.color(for: "Alive")
         let deadColor = RickMortyAssignment.StatusService.color(for: "Dead")
