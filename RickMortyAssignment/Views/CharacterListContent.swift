@@ -1,10 +1,3 @@
-//
-//  CharacterListContent.swift
-//  RickMortyAssignment
-//
-//  Created by Mohamed Jaber on 09/09/2026.
-//
-
 import SwiftUI
 
 struct CharacterListContent: View {
@@ -35,9 +28,11 @@ struct CharacterListContent: View {
     private var characterList: some View {
         List {
             ForEach(characters) { character in
-                CharacterRowView(character: character)
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparator(.hidden)
+                NavigationLink(value: character) {
+                    CharacterRowView(character: character)
+                }
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
             }
             
             // Add loading trigger at the end if there are more pages
@@ -53,6 +48,13 @@ struct CharacterListContent: View {
             }
         }
         .listStyle(.plain)
+        .navigationDestination(for: Character.self) { character in
+            CharacterDetailView(
+                character: character,
+                appFactory: appFactory,
+                preloadedImage: nil
+            )
+        }
         .refreshable {
             await onRefresh()
         }
@@ -85,4 +87,3 @@ struct CharacterListContent: View {
         onRefresh: { }
     )
 }
-

@@ -1,10 +1,3 @@
-//
-//  AppFactory.swift
-//  RickMortyAssignment
-//
-//  Created by Mohamed Jaber on 09/09/2026.
-//
-
 import Foundation
 
 final class AppFactory {
@@ -31,7 +24,11 @@ final class AppFactory {
     private lazy var characterRepository: CharacterRepositoryProtocol = {
         CharacterRepository(httpClient: httpClient)
     }()
-
+    
+    private lazy var episodeRepository: EpisodeRepositoryProtocol = {
+        EpisodeRepository(httpClient: httpClient)
+    }()
+    
     // Persistence
     private lazy var persistenceController: PersistenceController = {
         PersistenceController.shared
@@ -44,5 +41,12 @@ final class AppFactory {
             persistenceController: persistenceController
         )
     }()
+    
+    func createCharacterDetailViewModel(character: Character) -> CharacterDetailViewModel {
+        CharacterDetailViewModel(
+            character: character,
+            episodeRepository: episodeRepository,
+            persistenceController: persistenceController
+        )
+    }
 }
-

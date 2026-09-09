@@ -46,6 +46,8 @@
 				"Persistence/CachedCharacter+Extensions.swift",
 				Persistence/PersistenceController.swift,
 				Repositories/CharacterRepository.swift,
+				Repositories/EpisodeRepository.swift,
+				ViewModels/CharacterDetailViewModel.swift,
 				ViewModels/CharactersListViewModel.swift,
 			);
 			target = 293D05C7305139F2008BC1B3 /* RickMortyAssignmentTests */;
