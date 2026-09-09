@@ -14,7 +14,7 @@ A SwiftUI-based iOS application showcasing the Rick and Morty universe with a co
 
 Watch the app in action:
 
-<video src="Screenshots/demo.mp4" width="350" controls></video>
+[▶️ Watch the demo video](Screenshots/demo.mp4)
 
 ---
 
