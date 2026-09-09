@@ -33,6 +33,9 @@
 		293D05FF30513C92008BC1B3 /* Exceptions for "RickMortyAssignment" folder in "RickMortyAssignmentTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/APIResponse.swift,
+				Models/Character.swift,
+				Models/Episode.swift,
 				Networking/HTTPClient.swift,
 				Networking/HTTPRequest.swift,
 				Networking/NetworkConfiguration.swift,
