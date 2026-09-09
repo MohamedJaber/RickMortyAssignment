@@ -5,16 +5,16 @@ A SwiftUI-based iOS application showcasing the Rick and Morty universe with a co
 ## Screenshots
 
 ### Character List
-![Character List](Screenshots/character-list.png)
+<img src="Screenshots/character-list.png" alt="Character List" width="300">
 
 ### Character Details
-![Character Details](Screenshots/character-detail.png)
+<img src="Screenshots/character-detail.png" alt="Character Details" width="300">
 
 ## Video Demo
 
 Watch the app in action:
 
-![App Demo](Screenshots/demo.mov)
+<video src="Screenshots/demo.mp4" width="350" controls></video>
 
 ---
 
