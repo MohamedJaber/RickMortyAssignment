@@ -8,6 +8,7 @@ struct CharacterListContent: View {
     var appFactory: AppFactory
     var onLoadMore: (Character) -> Void
     var onRefresh: () async -> Void
+    @Binding var navigationPath: NavigationPath
     
     var body: some View {
         Group {
@@ -28,9 +29,12 @@ struct CharacterListContent: View {
     private var characterList: some View {
         List {
             ForEach(characters) { character in
-                NavigationLink(value: character) {
+                Button(action: {
+                    navigationPath.append(character)
+                }) {
                     CharacterRowView(character: character)
                 }
+                .buttonStyle(.plain)
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
             }
@@ -48,13 +52,6 @@ struct CharacterListContent: View {
             }
         }
         .listStyle(.plain)
-        .navigationDestination(for: Character.self) { character in
-            CharacterDetailView(
-                character: character,
-                appFactory: appFactory,
-                preloadedImage: nil
-            )
-        }
         .refreshable {
             await onRefresh()
         }
@@ -84,6 +81,7 @@ struct CharacterListContent: View {
         canLoadMore: true,
         appFactory: AppFactory(),
         onLoadMore: { _ in },
-        onRefresh: { }
+        onRefresh: { },
+        navigationPath: .constant(NavigationPath())
     )
 }

@@ -10,16 +10,26 @@ import SwiftUI
 struct CharactersListView: View {
     @Bindable var viewModel: CharactersListViewModel
     private let appFactory = AppFactory()
+    @State private var navigationPath = NavigationPath()
 
     var body: some View {
-        ZStack {
-            mainContent
-            errorBanner
-        }
-        .navigationTitle("Characters")
-        .navigationBarTitleDisplayMode(.large)
-        .task {
-            await viewModel.fetchCharacters()
+        NavigationStack(path: $navigationPath) {
+            ZStack {
+                mainContent
+                errorBanner
+            }
+            .navigationTitle("Characters")
+            .navigationBarTitleDisplayMode(.large)
+            .navigationDestination(for: Character.self) { character in
+                CharacterDetailView(
+                    character: character,
+                    appFactory: appFactory,
+                    preloadedImage: nil
+                )
+            }
+            .task {
+                await viewModel.fetchCharacters()
+            }
         }
     }
     
@@ -59,7 +69,8 @@ struct CharactersListView: View {
             canLoadMore: viewModel.canLoadMore(),
             appFactory: appFactory,
             onLoadMore: viewModel.loadNextPage,
-            onRefresh: viewModel.refresh
+            onRefresh: viewModel.refresh,
+            navigationPath: $navigationPath
         )
     }
     
